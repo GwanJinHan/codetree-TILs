@@ -25,10 +25,10 @@ while left <= right:
     while queue:
         r, c, M, N = queue.popleft()
 
-        ans = max(ans, M - N)
 
         if visit[r][c] <= M - N:
             continue
+        ans = max(ans, M - N) 
         
         visit[r][c] = M - N
 
