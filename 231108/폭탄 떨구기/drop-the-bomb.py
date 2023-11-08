@@ -20,7 +20,7 @@ def isPossible(r):
     
     return False if cnt == k and pointer < n else True
 
-left, right = 0, 500000000
+left, right = 0, 1000000000
 
 ans = sys.maxsize
 while left <= right:
