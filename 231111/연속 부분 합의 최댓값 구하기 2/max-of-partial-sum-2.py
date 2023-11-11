@@ -2,7 +2,7 @@ n = int(input())
 arr = list(map(int, input().split()))
 
 acc = 0
-ans = 0
+ans = -1001
 for val in arr:
     acc += val
     ans = max(acc, ans)
