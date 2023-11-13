@@ -30,4 +30,4 @@ while queue:
 
 
 for val in d:
-    print(val)
+    print(val if val != INF else -1)
