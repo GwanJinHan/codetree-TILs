@@ -1,19 +1,13 @@
-# 다음에 조금이라도 떨어지면 판다. (혹은 판 상태를 유지한다.)
-# 다음에 조금이라도 오르면 산다. (혹은 산 상태를 유지한다.)
-
-import sys
-
+# 구간 다시 시작하기
 n = int(input())
-arr = list(map(int, input().split( ))) + [0]
+arr = list(map(int, input().split( )))
 
+min_val = arr[0]
 ans = 0
-buy_price = sys.maxsize
-
-for i in range(1, n + 1):
-    if arr[i] > arr[i - 1]:
-        buy_price = min(buy_price, arr[i - 1])
-    elif arr[i] < arr[i - 1]:
-        ans = max(ans, arr[i - 1] - buy_price)
-        buy_price = sys.maxsize
+for val in arr:
+    if min_val > val:
+        min_val = val
+    elif min_val <= val:
+        ans = max(ans, val - min_val) 
 
 print(ans)
