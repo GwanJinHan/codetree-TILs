@@ -8,11 +8,10 @@
 
 |총 문제수|획득 경험치|연속 학습|
 |---:|---:|---|
-2|40xp|1일째🔥|
+1|40xp|1일째🔥|
 
 |교재|이름|난이도|상태|최근 제출 코드|
 |---|---|:---:|:---:|---|
-|[Intermediate Mid / Greedy / Greedy Algorithm](https://www.codetree.ai/missions?missionId=8)|[[연습]자동차 단일 거래 이익 최대화하기 2](https://www.codetree.ai/missions/8/problems/max-profit-of-single-car-2)|![쉬움][easy]|![Passed][passed]|[링크](https://github.com/GwanJinHan/codetree-TILs/blob/main/231113/%EC%9E%90%EB%8F%99%EC%B0%A8%20%EB%8B%A8%EC%9D%BC%20%EA%B1%B0%EB%9E%98%20%EC%9D%B4%EC%9D%B5%20%EC%B5%9C%EB%8C%80%ED%99%94%ED%95%98%EA%B8%B0%202/max-profit-of-single-car-2.py)|
 |[Intermediate Mid / Greedy / Greedy Algorithm](https://www.codetree.ai/missions?missionId=8)|[[연습]자동차 단일 거래 이익 최대화하기 2](https://www.codetree.ai/missions/8/problems/max-profit-of-single-car-2)|![쉬움][easy]|![Passed][passed]|[링크](https://github.com/GwanJinHan/codetree-TILs/blob/main/231113/%EC%9E%90%EB%8F%99%EC%B0%A8%20%EB%8B%A8%EC%9D%BC%20%EA%B1%B0%EB%9E%98%20%EC%9D%B4%EC%9D%B5%20%EC%B5%9C%EB%8C%80%ED%99%94%ED%95%98%EA%B8%B0%202/max-profit-of-single-car-2.py)|
 
 
