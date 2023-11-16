@@ -10,7 +10,9 @@ matrix = [
 for i in range(n):
     for r in range(n):
         for c in range(n):
-            if matrix[r][i] and matrix[i][c]:
+            if matrix[r][i] == 1 and matrix[i][c] == 1:
+                matrix[r][c] = 1
+            if r == c:
                 matrix[r][c] = 1
 
 
