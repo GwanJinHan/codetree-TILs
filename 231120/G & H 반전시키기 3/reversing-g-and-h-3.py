@@ -20,4 +20,6 @@ for i in range(n):
             ans += 1
             flag = False
 
+if flag:
+    ans += 1
 print(ans)
