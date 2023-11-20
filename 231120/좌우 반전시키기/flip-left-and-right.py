@@ -15,16 +15,20 @@ flag = False
 for i in range(n):
     if arr[i] == 0:
         if flag: # 00
-            arr[i] = switch(arr[i])
-            arr[i - 1] = switch(arr[i - 1])
+            arr[i - 1] = 1
+            arr[i] = 1
+            if i + 1 < n:
+                arr[i + 1] = switch(arr[i + 1])
             ans += 1
             flag = False
         else:
             flag = True
     else:
         if flag: # 01
-            arr[i] = switch(arr[i])
-            arr[i - 1] = switch(arr[i - 1])
+            arr[i - 1] = 1
+            arr[i] = 0
+            if i + 1 < n:
+                arr[i + 1] = switch(arr[i + 1])
             ans += 1
     
 print(ans if all(arr) else -1)
