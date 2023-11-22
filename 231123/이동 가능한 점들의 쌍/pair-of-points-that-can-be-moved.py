@@ -24,7 +24,7 @@ for _ in range(q):
     a, b = map(int, input().split())
 
     tmp = INF
-    for i in range(q):
+    for i in range(p):
         tmp = min(tmp, matrix[a - 1][i] + matrix[i][b - 1])
     
     if tmp < INF:
