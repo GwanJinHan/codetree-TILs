@@ -25,6 +25,8 @@ for inter in range(n):
                 matrix[r][c] = matrix[r][inter] + matrix[inter][c]
                 if matrix_red[r][inter] or matrix_red[inter][c]:
                     matrix_red[r][c] = True
+                elif not matrix_red[r][inter] and not matrix_red[inetr][c]:
+                    matrix_red[r][c] = False
 
 cnt = 0
 acc = 0
