@@ -32,9 +32,9 @@ cnt = 0
 acc = 0
 for _ in range(q):
     a, b = map(int, input().split())
-    if matrix_red[a - 1][b - 1]:
+    if matrix_red[a - 1][b - 1] and matrix[a - 1][b - 1] != INF:
         cnt += 1
         acc += matrix[a - 1][b - 1]
-        
+
 print(cnt)
 print(acc)
