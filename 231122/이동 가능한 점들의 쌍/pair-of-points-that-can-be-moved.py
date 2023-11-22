@@ -12,19 +12,18 @@ for i in range(n):
 for _ in range(m):
     a, b, c = map(int, input().split())
     matrix[a - 1][b - 1] = c
-
-for i in range(p):
-    for j in range(n):
-        matrix_red[j][i] = True
-        matrix_red[i][j] = True
+    if a <= p or b <= p:
+        matrix_red[a - 1][b - 1] = True
 
 for inter in range(n):
     for r in range(n):
         for c in range(n):
-            if matrix[r][c] > matrix[r][inter] + matrix[inter][c] and (matrix_red[r][inter] or matrix_red[inter][c]):
+            if matrix[r][c] > matrix[r][inter] + matrix[inter][c]:
                 matrix[r][c] = matrix[r][inter] + matrix[inter][c]
                 if matrix_red[r][inter] or matrix_red[inter][c]:
                     matrix_red[r][c] = True
+                elif not matrix_red[r][inter] and not matrix_red[inter][c]:
+                    matrix_red[r][c] = False
 
 cnt = 0
 acc = 0
