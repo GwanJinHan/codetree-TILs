@@ -15,7 +15,7 @@ dx, dy = [0, -1, 1, 0], [1, 1, 1, 2] #중, 왼, 오, 아래
 
 # 왼위에서부터 순차적으로
 ans = 0
-for r in range(n):
+for r in range(n - 1):
     for c in range(n):
         if arr[r][c] == 0:
             ans += 1
