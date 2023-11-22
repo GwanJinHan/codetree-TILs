@@ -6,6 +6,9 @@ n = int(input())
 arr = [
     list(map(int, input().split())) for _ in range(n)
 ]
+if n == 1 and arr[0][0] == 0:
+    print(-1)
+    sys.exit(0)
 
 # 기준이 중앙이 아닌 십자의 위쪽 
 dx, dy = [0, -1, 1, 0], [1, 1, 1, 2] #중, 왼, 오, 아래
