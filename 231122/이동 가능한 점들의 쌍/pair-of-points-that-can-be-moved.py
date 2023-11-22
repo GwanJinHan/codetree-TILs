@@ -21,8 +21,6 @@ for i in range(p):
 for inter in range(n):
     for r in range(n):
         for c in range(n):
-            if r == c or r == inter or c == inter:
-                continue
             if matrix[r][c] > matrix[r][inter] + matrix[inter][c]:
                 matrix[r][c] = matrix[r][inter] + matrix[inter][c]
                 if matrix_red[r][inter] or matrix_red[inter][c]:
