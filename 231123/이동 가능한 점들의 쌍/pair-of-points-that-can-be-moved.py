@@ -1,42 +1,51 @@
+#통과 못함
 import sys
-input = sys.stdin.readline
 
-INF = sys.maxsize
-n, m, p, q = map(int, input().split())
-matrix = [[INF] * n for _ in range(n)]
-matrix_red = [[False] * n for _ in range(n)]
+INT_MAX = sys.maxsize
 
-for i in range(n):
-    matrix[i][i] = 0
+n, m, p, q = tuple(map(int, input().split()))
 
-for _ in range(m):
-    a, b, c = map(int, input().split())
-    matrix[a - 1][b - 1] = c
+#starts from 1
+dist = [
+    [INT_MAX] * (n + 1)
+    for _ in range(n + 1)
+]
 
-for i in range(p):
-    for j in range(n):
-        matrix_red[j][i] = True
-        matrix_red[i][j] = True
+red = [
+    [False] * (n + 1)
+    for _ in range(n + 1)
+]
 
-for inter in range(n):
-    for r in range(n):
-        for c in range(n):
-            if matrix[r][c] > matrix[r][inter] + matrix[inter][c]:
-                matrix[r][c] = matrix[r][inter] + matrix[inter][c]
-                if matrix_red[r][inter] or matrix_red[inter][c]:
-                    matrix_red[r][c] = True
-                elif not matrix_red[r][inter] and not matrix_red[inter][c]:
-                    matrix_red[r][c] = False
-            elif matrix[r][c] == matrix[r][inter] + matrix[inter][c] and (matrix_red[r][inter] or matrix_red[inter][c]):
-                matrix_red[r][c] = True
+for i in range(1, p+1):
+    red[i][i] = True
+    for j in range(1, n+1):
+        red[i][j], red[j][i] = True, True
 
+
+edges = [ list(map(int, input().split())) for _ in range(m)]
+queries = [ tuple(map(int, input().split())) for _ in range(q)]
+
+for i in range(m ):
+    x, y, z = edges[i]
+    dist[x][y] = min(dist[x][y], z)
+
+for k in range(1, n+1): 
+    for i in range(1, n+1): 
+        for j in range(1, n+1):
+            if dist[i][j] > dist[i][k] + dist[k][j] :
+                dist[i][j] = dist[i][k] + dist[k][j]
+                red[i][j] = red[i][k] | red[k][j] #셋 중 하나라도 1이면 1
+            elif dist[i][j] == dist[i][k] + dist[k][j] :
+                red[i][j] = red[i][j] | red[i][k] | red[k][j] #셋 중 하나라도 1이면 1
 cnt = 0
-acc = 0
-for _ in range(q):
-    a, b = map(int, input().split())
-    if matrix_red[a - 1][b - 1] and matrix[a - 1][b - 1] != INF:
+min_sum = 0
+for a, b in queries:
+    if dist[a][b] < INT_MAX and red[a][b]:
         cnt += 1
-        acc += matrix[a - 1][b - 1]
+        min_sum += dist[a][b]
+
+
+
 
 print(cnt)
-print(acc)
+print(min_sum)
