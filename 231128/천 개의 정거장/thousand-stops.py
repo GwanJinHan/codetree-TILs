@@ -1,12 +1,13 @@
 # 최소 비용 중 -> 최소 시간 (최소 비용이 우선) 
+from collections import defaultdict as dd
 import sys
 from heapq import heappush, heappop
 input = sys.stdin.readline
 
 
-
 a, b, n = map(int, input().split())
-graph = [[] for _ in range(1000)]
+# graph = [[] for _ in range(1000)]
+graph = dd(list)
 INF = sys.maxsize
 
 for _ in range(n):
