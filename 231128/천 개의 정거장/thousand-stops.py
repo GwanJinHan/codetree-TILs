@@ -35,7 +35,7 @@ while hq:
             heappush(hq, (d[node], time[node], node))
         elif d[node] == fee + d[i]:
             time[node] = min(time[node], t + tt)
-            heappush(hq, (d[node], time[node], node))
+
 if d[b - 1] >= INF:
     print(-1, -1)
 else:
