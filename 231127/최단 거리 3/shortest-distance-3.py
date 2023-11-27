@@ -25,7 +25,7 @@ while hq:
         continue
     
     for node, weight in graph[i]:
-        if d[node] >= weight + d[i]:
+        if d[node] > weight + d[i]:
             d[node] = weight + d[i]
             heappush(hq, (d[node], node))
             path[node] = i
