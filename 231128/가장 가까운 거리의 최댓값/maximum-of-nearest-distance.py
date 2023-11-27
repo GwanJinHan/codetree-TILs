@@ -35,8 +35,8 @@ for start in [a, b, c]:
 
 ans = -1
 for i in range(n):
-    # if i == a - 1 or i == b - 1 or i == c - 1:
-    #     continue
+    if i == a - 1 or i == b - 1 or i == c - 1:
+        continue
     acc = INF
     for arr in arrs:
         acc = min(acc, arr[i])
