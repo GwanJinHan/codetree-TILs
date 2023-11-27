@@ -15,7 +15,7 @@ for _ in range(n):
 
     for i in range(cnt - 1): # 출발점
         for j in range(i + 1, cnt):
-            graph[path[i] - 1].append((path[j] - 1, fee, abs(i - j)))
+            graph[path[i] - 1].append((path[j] - 1, fee, j - i))
 
 d = [INF] * 1000
 time = [INF] * 1000
@@ -34,7 +34,7 @@ while hq:
             time[node] = min(t + tt, time[i] + tt)
             heappush(hq, (d[node], time[node], node))
         elif d[node] == fee + d[i]:
-            time[node] = min(time[node], t + tt)
+            time[node] = min(time[node], t + tt, time[i] + tt)
 
 if d[b - 1] >= INF:
     print(-1, -1)
