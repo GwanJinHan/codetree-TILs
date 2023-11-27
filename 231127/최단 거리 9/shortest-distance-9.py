@@ -9,6 +9,7 @@ INF = sys.maxsize
 for _ in range(m):
     a, b, c = map(int, input().split())
     graph[a - 1].append((b - 1, c))
+    graph[b - 1].append((a - 1, c))
 
 s, e = map(int, input().split())
 d = [INF] * n
@@ -20,11 +21,11 @@ hq = [(0, s - 1)]
 while hq:
     w, i = heappop(hq)
 
-    if d[i] != w:
+    if d[i] < w:
         continue
     
     for node, weight in graph[i]:
-        if d[node] > weight + d[i]:
+        if d[node] >= weight + d[i]:
             d[node] = weight + d[i]
             heappush(hq, (d[node], node))
             path[node] = i
