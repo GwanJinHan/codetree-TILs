@@ -18,8 +18,8 @@ for _ in range(n):
         for j in range(i + 1, cnt):
             graph[path[i] - 1].append((path[j] - 1, fee, j - i))
 
-d = [INF] * 1000
-time = [INF] * 1000
+d = dd(lambda : INF)
+time = dd(lambda : INF)
 d[a - 1] = 0
 hq = [(0, 0, a - 1)]
 
