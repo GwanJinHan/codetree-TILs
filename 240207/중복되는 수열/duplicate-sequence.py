@@ -26,13 +26,14 @@ def insert_word(s):
         
         t = t.children[index]
     
-    t.is_end = True
+    if t.is_end:
+        flag = True
+    else:
+        t.is_end = True
 
-nums = [input().rstrip() for _ in range(n)]
-nums.sort(key = lambda x : len(x))
 
-for num in nums:
-    insert_word(num)
+for _ in range(n):
+    insert_word(input().rstrip())
     if flag:
         break
 
