@@ -3,6 +3,7 @@ input = sys.stdin.readline
 
 n = int(input())
 arr = list(set(map(int, input().split())))
+arr.sort(reverse=True)
 m = bin(max(arr))[2:]
 l = len(m)
 
@@ -29,22 +30,28 @@ for num in arr:
                 t.right = TrieNode()
             t = t.right
 
-ans = ""
-t = root
-for num in m:
-    if num == "0":
-        if t.right is None:
-            t = t.left
-            ans += "0"
-        else:
-            t = t.right
-            ans += "1"
-    elif num == "1":
-        if t.left is None:
-            t = t.right
-            ans += "0"
-        else:
-            t = t.left
-            ans += "1"
+ans = -1
+for tar in arr:
+    t = root
+    t_ans = ""
+    t_n = bin(tar)[2:]
+    if len(t_n) != l:
+        break
+    for num in t_n:
+        if num == "0":
+            if t.right is None:
+                t = t.left
+                t_ans += "0"
+            else:
+                t = t.right
+                t_ans += "1"
+        elif num == "1":
+            if t.left is None:
+                t = t.right
+                t_ans += "0"
+            else:
+                t = t.left
+                t_ans += "1"
 
-print(int(ans, 2))
+    ans = max(ans, int(t_ans, 2))
+print(ans)
